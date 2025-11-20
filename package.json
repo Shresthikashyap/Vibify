@@ -174,9 +174,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd backend && node index.js",
+    "build": "cd frontend && npm install && npm run build",
     "frontend": "cd frontend && npm run dev",
     "backend": "cd backend && npm run dev",
-    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
   },
   "author": "",
   "license": "ISC",
