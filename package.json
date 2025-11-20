@@ -174,7 +174,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd backend && node index.js",
+    "start": "cd backend && node src/index.js",
     "build": "cd frontend && npm install && npm run build",
     "frontend": "cd frontend && npm run dev",
     "backend": "cd backend && npm run dev",
