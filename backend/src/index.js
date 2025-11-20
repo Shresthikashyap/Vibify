@@ -27,7 +27,7 @@ app.use(
 	})
 );
 
-app.use(express.json()); // to parse req.body
+app.use(express.json()); 
 app.use(clerkMiddleware()); // this will add auth to req obj => req.auth
 app.use(
 	fileUpload({
@@ -56,22 +56,13 @@ cron.schedule("0 * * * *", () => {
 	}
 });
 
-// API routes
+
 app.use("/api/admin", adminRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
 
-// Serve frontend in production
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "../frontend/dist")));
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
-	});
-}
-
-// Error handler
 app.use((err, req, res, next) => {
 	res.status(500).json({ 
 		message: process.env.NODE_ENV === "production" 

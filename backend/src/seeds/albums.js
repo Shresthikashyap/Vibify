@@ -21,7 +21,7 @@ const seedDatabase = async () => {
 				imageUrl: "/cover-images/7.jpg",
 				audioUrl: "/songs/7.mp3",
 				plays: Math.floor(Math.random() * 5000),
-				duration: 39, // 0:39
+				duration: 39, 
 			},
 			{
 				title: "Neon Lights",

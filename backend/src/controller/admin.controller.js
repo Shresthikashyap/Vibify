@@ -2,7 +2,7 @@ import { Song } from "../models/song.model.js";
 import { Album } from "../models/album.model.js";
 import cloudinary from "../lib/cloudinary.js";
 
-// helper function for cloudinary uploads
+
 const uploadToCloudinary = async (file) => {
 	try {
 		const result = await cloudinary.uploader.upload(file.tempFilePath, {

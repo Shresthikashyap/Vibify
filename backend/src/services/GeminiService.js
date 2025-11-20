@@ -1,6 +1,7 @@
 // services/GeminiService.js
 import axios from 'axios';
 import dotenv from 'dotenv';
+import { response } from 'express';
 
 dotenv.config();
 
@@ -33,7 +34,7 @@ const callGeminiAPI = async (message) => {
         return response.data.candidates[0].content.parts[0].text;
     } catch (error) {
         console.error('Gemini API Error:', error.response?.data || error.message);
-        throw new Error('AI service unavailable');
+        return error;
     }
 };
 

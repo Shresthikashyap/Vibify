@@ -217,7 +217,7 @@ export const getMadeForYouSongs = async (req, res, next) => {
 		});
 
 		// If we got fewer than 4 songs, fill with random songs
-		if (recommendedSongs.length < 4) {
+		if (recommendedSongs.length < 4 || geminiResponse.error) {
 			const additionalSongs = await Song.aggregate([
 				{
 					$match: {
